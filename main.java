@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class main {
 
-    public static final int ARRAY_SIZE = 100;
+    public static int arraySize;
     public static final int MENU_EXIT = 0;
     public static final int MENU_MIN_MAX = 1;
     public static final int MENU_AVERAGE = 2;
@@ -15,11 +15,25 @@ public class main {
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
 
-        int array[] = createArray(ARRAY_SIZE, random);
 
         boolean isRunning = true;
         int input;
 
+        //Taking a valid array size.
+        System.out.print("Please enter the size of the array: ");
+
+        while (true) {
+            if(scanner.hasNextInt()){
+                arraySize = scanner.nextInt();
+                break;
+            }
+            else{
+                System.out.print("Please enter an integer : ");
+                scanner.next(); 
+            }
+        }
+
+        int array[] = createArray(arraySize, random);
         // b) Display the menu options, get the user’s choice, and call the required methods to print out the result. Until the user chooses to exit, you should display the menu again.
         
         do {
