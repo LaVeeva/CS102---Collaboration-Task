@@ -25,7 +25,7 @@ public class main {
         do {
 
             System.out.printf("Array: %s\n", Arrays.toString(array));
-            System.out.printf("Actions:\n\t0: Exit\n\t1: Find minimum and maximum values\n\t2: Find the average and differences\n\t3: Calculate the sums of odd and even numbers\nPick action: ");
+            System.out.printf("Actions:\n\t0: Exit\n\t1: Find minimum and maximum values\n\t2: Find the average and differences\n\t3: Calculate the sums of odd and even numbered indexes\nPick action: ");
 
             if (scanner.hasNextInt()) {
 
@@ -43,7 +43,7 @@ public class main {
                         // TBD
                         break;
                     case MENU_SUMS:
-                        // TBD
+                        sumOfIndexes(array);
                         break;
                     default:
                         System.out.printf("\n%d is not a valid option.\n\n", input);
@@ -74,4 +74,20 @@ public class main {
         }
         return array;
     }
-}
+
+    /**
+     * e)Find the sum of elements with odd- and even-numbered indexes. 
+     * For example, if the array is {1, 5, 8, 9, 10, 2, 6}, the sum of the odd indexes is 5 + 9 + 2, 
+     * and the sum of the even indexes is 1 + 8 + 10 + 6, assuming indexes start at 0.
+     * @author Emir Akar
+     */
+    public static void sumOfIndexes(int[] arr){
+        int evenSums = 0;
+        int oddSums = 0;
+        for(int i = 0; i < arr.length; i++){
+            if(i % 2 == 0) evenSums+= arr[i];
+            else oddSums += arr[i];
+        }
+        System.out.println("The sum of the odd indexes is: " + oddSums + "\nThe sum of the even indexes is: " + evenSums + "\n");
+    }
+}    
