@@ -63,7 +63,7 @@ public class main
                     System.out.printf("Max of array: %d\nMin of array: %d\n", arrayMax(array), arrayMin(array));
                     break;
                 case MENU_AVERAGE:
-                    // TBD
+                    differenceFromAverage(array);
                     break;
                 case MENU_SUMS:
                     sumOfIndexes(array);
@@ -121,6 +121,32 @@ public class main
         return arr[0];
     }
 
+    /**
+     * d)Find the average of the array. Display how each element of the array differs from the 
+     * average. For example, if the array is {2, 6, 9, 3, 5}, and the average is 5, then the 
+     * differences from the average would be {-3, 1, 4, -2, 0}.
+     * 
+     * @author Burhan Bulut
+     */
+    public static double average(int[] arr)
+    {
+        double total = 0;
+        for(int element: arr){
+            total += element;
+        }
+        return total / arr.length;
+    }
+    public static void differenceFromAverage(int[] arr)
+    {
+        double average = average(arr);
+        System.out.print("Differences from the average in order: ");
+        for(int element: arr)
+        {
+            System.out.printf("%.2f ", element - average);
+        }
+        System.out.println();
+    }
+    
     /**
      * e)Find the sum of elements with odd- and even-numbered indexes. For example,
      * if the array is {1, 5, 8, 9, 10, 2, 6}, the sum of the odd indexes is 5 + 9 +
